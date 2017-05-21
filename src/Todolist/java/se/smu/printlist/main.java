@@ -1,4 +1,4 @@
-package se.smu.printlist;
+package java.se.smu.printlist;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

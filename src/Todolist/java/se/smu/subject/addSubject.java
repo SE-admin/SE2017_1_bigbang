@@ -1,4 +1,4 @@
-package se.smu.subject;
+package java.se.smu.subject;
 
 
 
