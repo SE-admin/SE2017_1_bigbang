@@ -58,6 +58,13 @@ public class main extends JFrame {
 		contentPane.add(button);
 		
 		JButton btnTodo = new JButton("todo \uCD94\uAC00");
+		btnTodo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				todo.MainForm main2 = new todo.MainForm();
+				main2.setVisible(true);
+				setVisible(false);
+			}
+		});
 		btnTodo.setBounds(257, 123, 117, 29);
 		contentPane.add(btnTodo);
 	}
