@@ -9,7 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import subject.MainForm;
+import subject.SubMainForm;
+
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -46,26 +47,26 @@ public class main extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton button = new JButton("\uACFC\uBAA9 \uCD94\uAC00");
+		JButton button = new JButton("Subject List");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				subject.MainForm main = new subject.MainForm();
+				subject.SubMainForm main = new subject.SubMainForm();
 				main.setVisible(true);
 				setVisible(false);
 			}
 		});
-		button.setBounds(70, 123, 117, 29);
+		button.setBounds(12, 10, 202, 241);
 		contentPane.add(button);
 		
-		JButton btnTodo = new JButton("todo \uCD94\uAC00");
+		JButton btnTodo = new JButton("ToDo List");
 		btnTodo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				todo.MainForm main2 = new todo.MainForm();
+				todo.ToDoMainForm main2 = new todo.ToDoMainForm();
 				main2.setVisible(true);
 				setVisible(false);
 			}
 		});
-		btnTodo.setBounds(257, 123, 117, 29);
+		btnTodo.setBounds(220, 10, 202, 241);
 		contentPane.add(btnTodo);
 	}
 }
