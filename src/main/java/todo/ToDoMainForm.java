@@ -52,6 +52,9 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
     private MemoContent memocontent;
     private JTextArea m_textArea;
     private JScrollPane scrollPane;
+    private JButton b_ordByNm;
+    private JButton b_ordByStar;
+    private JButton b_ordByEnd;
     
     public ToDoMainForm() {
         setLocation(200, 200);     
@@ -62,7 +65,7 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         getContentPane().setLayout(null);
         table = new JTable(tableModel);
         sp = new JScrollPane(table);
-        sp.setBounds(0, 0, 491, 393);
+        sp.setBounds(0, 39, 491, 354);
         getContentPane().add(sp);
         
         tableModel2 = new DefaultTableModel(calName2, 0);
@@ -160,6 +163,22 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         label_6.setFont(new Font("Gulim", Font.PLAIN, 12));
         label_6.setBounds(976, 10, 78, 24);
         getContentPane().add(label_6);
+        
+        JLabel ord_label = new JLabel("<<정렬");
+        ord_label.setBounds(413, 9, 78, 21);
+        getContentPane().add(ord_label);
+        
+        b_ordByNm = new JButton("강의명");
+        b_ordByNm.setBounds(0, 5, 98, 29);
+        getContentPane().add(b_ordByNm);
+        
+        b_ordByStar = new JButton("중요도");
+        b_ordByStar.setBounds(99, 5, 98, 29);
+        getContentPane().add(b_ordByStar);
+        
+        b_ordByEnd = new JButton("마감기한");
+        b_ordByEnd.setBounds(291, 5, 105, 29);
+        getContentPane().add(b_ordByEnd);
       
        
       
@@ -189,6 +208,7 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         b_save.addActionListener(this);
         b_load.addActionListener(this);
         b_exit.addActionListener(this);
+        b_ordByNm.addActionListener(this);
        
        
         t_tdSub.addFocusListener(this);
@@ -326,6 +346,13 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
             setVisible(false);
             
         }
+        else if (e.getSource() == b_ordByNm) {
+        	
+            System.out.println(">>>click ordByNm");
+            new ToDoLoad(t_tdSub, t_tdStar, t_tdContent, tdTime_s, tdCmp_s,
+                    data, tableModel, list);
+           
+        } 
     }
  
     @Override
