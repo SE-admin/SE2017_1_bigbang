@@ -349,8 +349,7 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         else if (e.getSource() == b_ordByNm) {
         	
             System.out.println(">>>click ordByNm");
-            new ToDoLoad(t_tdSub, t_tdStar, t_tdContent, tdTime_s, tdCmp_s,
-                    data, tableModel, list);
+            new ToDoOrdByNm(data, tableModel, list);
            
         } 
     }
