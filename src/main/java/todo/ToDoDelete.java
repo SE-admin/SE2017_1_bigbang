@@ -13,9 +13,9 @@ public class ToDoDelete {
         System.out.printf(">>>delete data:  %s\t%s\t%s\t%s\t%s\n",
                  temp.tdSub_s, temp.tdStar_s, temp.tdContent_s, temp.tdTime_s, temp.tdCmp_s);
         String tdSub = t_tdSub.getText();
-        int td_row = new ToDoSearch(tdSub, list).searchData();
-        if(td_row != -1) {      
-            tableModel.removeRow(td_row);
+       
+        if(row != -1) {      
+            tableModel.removeRow(row);
             list.remove(row);
         } else {
             System.out.println(">>>delete error");

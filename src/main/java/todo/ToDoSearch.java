@@ -69,7 +69,7 @@ public class ToDoSearch {
                 ToDoInfo info = list.get(i);
                 if(info.tdSub_s.equals(temp_tdSub)) {
                    
-                    return i;
+                   return i;
                 }
             }
           

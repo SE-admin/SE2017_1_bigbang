@@ -59,7 +59,7 @@ public class ToDoUpdate {
    
         
         tdSub_s.setText("");
-        tdStar_s.setText("★★★");
+        tdStar_s.setText("");
         tdContent_s.setText("");
         tdTime_s.setText("");
         dCmp_s.setText("");

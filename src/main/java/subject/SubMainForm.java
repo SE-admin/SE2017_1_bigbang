@@ -24,6 +24,7 @@ public class SubMainForm extends JFrame implements ActionListener, FocusListener
     JButton b_insert, b_delete, b_update, b_save, b_load,b_clear, b_exit;
     JTextField t_subject, t_pro, t_day, t_time, t_year,b_seme;
     JPanel panel;                  
+    private JButton b_tooltip;
     
     public SubMainForm() {
         setLocation(200, 200);      
@@ -42,6 +43,7 @@ public class SubMainForm extends JFrame implements ActionListener, FocusListener
         panel.setBounds(696, 0, 357, 378);
         panel.setLayout(null);
         panel.add(t_subject = new JTextField(5));
+        t_subject.setText("ex)소프트웨어공학");
         t_subject.setBounds(103, 0, 103, 37);
         panel.add(b_insert = new JButton("삽입"));
         b_insert.setBounds(223, 0, 117, 37);
@@ -49,6 +51,7 @@ public class SubMainForm extends JFrame implements ActionListener, FocusListener
         l_pro.setBounds(0, 49, 103, 37);
         panel.add(l_pro);
         panel.add(t_pro = new JTextField(5));
+        t_pro.setText("ex)한혁수");
         t_pro.setBounds(103, 49, 103, 37);
         panel.add(b_delete = new JButton("삭제"));
         b_delete.setBounds(223, 49, 117, 37);
@@ -56,6 +59,7 @@ public class SubMainForm extends JFrame implements ActionListener, FocusListener
         l_day.setBounds(0, 98, 103, 37);
         panel.add(l_day);
         panel.add(t_day = new JTextField(5));
+        t_day.setText("ex)월");
         t_day.setBounds(103, 98, 103, 37);
         panel.add(b_update = new JButton("수정"));
         b_update.setBounds(223, 98, 117, 37);
@@ -63,6 +67,7 @@ public class SubMainForm extends JFrame implements ActionListener, FocusListener
         l_time.setBounds(0, 147, 103, 37);
         panel.add(l_time);
         panel.add(t_time = new JTextField(5));
+        t_time.setText("ex)3");
         t_time.setBounds(103, 147, 103, 37);
        
      
@@ -70,6 +75,7 @@ public class SubMainForm extends JFrame implements ActionListener, FocusListener
         l_year.setBounds(0, 196, 103, 37);
         panel.add(l_year);
         panel.add(t_year = new JTextField(5));
+        t_year.setText("ex)2017");
         t_year.setBounds(103, 196, 103, 37);
         panel.add(b_clear = new JButton("초기화"));
         b_clear.setBounds(223, 147, 117, 37);
@@ -88,9 +94,18 @@ public class SubMainForm extends JFrame implements ActionListener, FocusListener
         l_seme.setBounds(0, 245, 103, 37);
         panel.add(l_seme);
         panel.add(b_seme = new JTextField(5));
+        b_seme.setText("ex)1");
         
         b_seme.setBounds(103, 245, 103, 37);
         panel.add(b_seme);
+        
+        b_tooltip = new JButton("입력 예 보기");
+        b_tooltip.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        b_tooltip.setBounds(89, 300, 117, 37);
+        panel.add(b_tooltip);
        
         
         addWindowListener(new WindowAdapter() {
@@ -114,7 +129,7 @@ public class SubMainForm extends JFrame implements ActionListener, FocusListener
         b_save.addActionListener(this);
         b_load.addActionListener(this);
         b_exit.addActionListener(this);
-       
+        b_tooltip.addActionListener(this);
        
         t_subject.addFocusListener(this);
         t_pro.addFocusListener(this);
@@ -204,6 +219,15 @@ public class SubMainForm extends JFrame implements ActionListener, FocusListener
             main.main m = new main.main();
             m.setVisible(true);
             setVisible(false);
+            
+        }
+        else if (e.getSource() == b_tooltip) {    
+        	 t_subject.setText("ex)소프트웨어공학");
+             t_pro.setText("ex)한혁수");
+             t_day.setText("ex)월");  
+             t_time.setText("ex)3");   
+             t_year.setText("ex)2017");  
+             b_seme.setText("ex)1");
             
         }
     }

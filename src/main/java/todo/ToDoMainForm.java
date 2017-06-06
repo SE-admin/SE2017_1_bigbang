@@ -57,6 +57,7 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
     private JButton b_ordByStar;
     private JButton b_ordByTime;
     private JButton b_ordByCmp;
+    private JButton b_tooltip;
     
     public ToDoMainForm() {
         setLocation(200, 200);     
@@ -82,6 +83,8 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         panel.setBounds(655, 0, 319, 393);
         panel.setLayout(null);
         panel.add(t_tdSub = new JTextField(5));
+        t_tdSub.setText("ex)소프트웨어공학");
+        t_tdSub.setToolTipText("");
         t_tdSub.setBounds(103, 0, 103, 37);
         panel.add(b_insert = new JButton("삽입"));
         b_insert.setBounds(206, 0, 103, 37);
@@ -89,6 +92,8 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         label_1.setBounds(0, 49, 103, 37);
         panel.add(label_1);
         panel.add(t_tdStar = new JTextField(5));
+        t_tdStar.setText("ex)1~100");
+        t_tdStar.setToolTipText("");
         t_tdStar.setBounds(103, 49, 103, 37);
         panel.add(b_delete = new JButton("삭제"));
         b_delete.setBounds(206, 49, 103, 37);
@@ -96,6 +101,7 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         label_2.setBounds(0, 98, 103, 37);
         panel.add(label_2);
         panel.add(t_tdContent = new JTextField(5));
+        t_tdContent.setText("ex)과제해야함");
         t_tdContent.setBounds(103, 98, 103, 37);
         panel.add(b_update = new JButton("수정"));
         b_update.setBounds(206, 98, 103, 37);
@@ -103,6 +109,8 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         label_3.setBounds(0, 147, 103, 37);
         panel.add(label_3);
         panel.add(tdTime_s = new JTextField(5));
+        tdTime_s.setText("ex)17-06-06  ");
+        tdTime_s.setToolTipText("");
         tdTime_s.setBounds(103, 147, 103, 37);
         panel.add(b_search = new JButton("등록된 강의 불러오기"));
         b_search.setBounds(12, 290, 158, 37);
@@ -110,6 +118,8 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         label_4.setBounds(0, 196, 103, 37);
         panel.add(label_4);
         panel.add(tdCmp_s = new JTextField(5));
+        tdCmp_s.setText("ex)o,x");
+        tdCmp_s.setToolTipText("");
         tdCmp_s.setBounds(103, 196, 103, 37);
         panel.add(b_clear = new JButton("초기화"));
         b_clear.setBounds(206, 145, 103, 37);
@@ -124,6 +134,10 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         JLabel lblLsub = new JLabel("강의명");
         lblLsub.setBounds(0, 0, 103, 37);
         panel.add(lblLsub);
+        
+        b_tooltip = new JButton("입력 예 보기");
+        b_tooltip.setBounds(12, 243, 158, 37);
+        panel.add(b_tooltip);
         
         m_textArea = new JTextArea();
         scrollPane = new JScrollPane(m_textArea);
@@ -219,6 +233,7 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         b_ordByTime.addActionListener(this);
         b_ordByCmp.addActionListener(this);
         b_ordByStar.addActionListener(this);
+        b_tooltip.addActionListener(this);
         
        
         t_tdSub.addFocusListener(this);
@@ -270,7 +285,7 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         tdCmp_s.setText((String)tableModel.getValueAt(row, 4));
        
        
-      
+       
         System.out.println(">>>get data: "+ tableModel.getValueAt(row, 0));
     }
     public void Select2() {
@@ -341,7 +356,7 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
             t_tdContent.setText("");  
             tdTime_s.setText("");   
             tdCmp_s.setText("");  
-            tdCmp_s.setText("");
+    
            
         } 
         else if (e.getSource() == b_search) {      
@@ -384,6 +399,15 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         	
             System.out.println(">>>click ordByTime");
             new ToDoOrdByTime(data, tableModel, list);
+           
+        } 
+        else if (e.getSource() == b_tooltip) {
+        	
+        	 t_tdSub.setText("ex)소프트웨어공학");
+             t_tdStar.setText("ex)1~100");
+             t_tdContent.setText("ex)과제해야함");  
+             tdTime_s.setText("ex)17-06-06");   
+             tdCmp_s.setText("ex)o,x");  
            
         } 
     }

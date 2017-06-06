@@ -13,9 +13,9 @@ public class SubDelete {
         System.out.printf(">>>delete data: %s\t%s\t%s\t%s\t%s\t%s\n", temp.subName_s, temp.subPrf_s, temp.subDay_s, temp.subTime_s, temp.subYear_s, temp.subSem_s);
         String subject = t_subject.getText();
      
-        int s_row = new SubSearch(subject, list).searchData();
-        if(s_row != -1) {      
-            tableModel.removeRow(s_row);
+       
+        if(row != -1) {      
+            tableModel.removeRow(row);
             list.remove(row);
         } else {
             System.out.println(">>>delete error");
