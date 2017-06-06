@@ -12,8 +12,8 @@ public class ToDoLoad {
     ObjectInputStream in;
     ToDoInfo info;
     ToDoLoad() {}
-    ToDoLoad( JTextField t_tdSub, JTextField t_tdContent,
-            JTextField t_tdStar, JTextField t_tdTime, JTextField t_tdCmp,
+    ToDoLoad( JTextField t_tdSub, 
+            JTextField t_tdStar, JTextField t_tdContent,JTextField t_tdTime, JTextField t_tdCmp,
             Object data[], DefaultTableModel tableModel,ArrayList<ToDoInfo> list) {
         try {
             fis = new FileInputStream("data/ToDoList.dat");
@@ -27,8 +27,8 @@ public class ToDoLoad {
                 list.add(info);
               
                 data[0] = info.tdSub_s;
-                data[1] = info.tdContent_s;
-                data[2] = info.tdStar_s;
+                data[1] = info.tdStar_s;
+                data[2] = info.tdContent_s;
                 data[3] = info.tdTime_s;
                 data[4] = info.tdCmp_s;
              

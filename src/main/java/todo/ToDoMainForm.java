@@ -53,8 +53,10 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
     private JTextArea m_textArea;
     private JScrollPane scrollPane;
     private JButton b_ordByNm;
+    private JButton b_ordByCon;
     private JButton b_ordByStar;
-    private JButton b_ordByEnd;
+    private JButton b_ordByTime;
+    private JButton b_ordByCmp;
     
     public ToDoMainForm() {
         setLocation(200, 200);     
@@ -164,21 +166,25 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         label_6.setBounds(976, 10, 78, 24);
         getContentPane().add(label_6);
         
-        JLabel ord_label = new JLabel("<<정렬");
-        ord_label.setBounds(413, 9, 78, 21);
-        getContentPane().add(ord_label);
-        
         b_ordByNm = new JButton("강의명");
-        b_ordByNm.setBounds(0, 5, 98, 29);
+        b_ordByNm.setBounds(0, 8, 98, 29);
         getContentPane().add(b_ordByNm);
         
+        b_ordByCon = new JButton("내용");
+        b_ordByCon.setBounds(196, 8, 98, 29);
+        getContentPane().add(b_ordByCon);
+        
         b_ordByStar = new JButton("중요도");
-        b_ordByStar.setBounds(99, 5, 98, 29);
+        b_ordByStar.setBounds(98, 8, 98, 29);
         getContentPane().add(b_ordByStar);
         
-        b_ordByEnd = new JButton("마감기한");
-        b_ordByEnd.setBounds(291, 5, 105, 29);
-        getContentPane().add(b_ordByEnd);
+        b_ordByTime = new JButton("마감기한");
+        b_ordByTime.setBounds(295, 8, 98, 29);
+        getContentPane().add(b_ordByTime);
+        
+        b_ordByCmp = new JButton("완료여부");
+        b_ordByCmp.setBounds(393, 8, 98, 29);
+        getContentPane().add(b_ordByCmp);
       
        
       
@@ -209,7 +215,11 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         b_load.addActionListener(this);
         b_exit.addActionListener(this);
         b_ordByNm.addActionListener(this);
-       
+        b_ordByCon.addActionListener(this);
+        b_ordByTime.addActionListener(this);
+        b_ordByCmp.addActionListener(this);
+        b_ordByStar.addActionListener(this);
+        
        
         t_tdSub.addFocusListener(this);
         t_tdStar.addFocusListener(this);
@@ -350,6 +360,30 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         	
             System.out.println(">>>click ordByNm");
             new ToDoOrdByNm(data, tableModel, list);
+           
+        } 
+        else if (e.getSource() == b_ordByCon) {
+        	
+            System.out.println(">>>click ordByCon");
+            new ToDoOrdByCon(data, tableModel, list);
+           
+        } 
+        else if (e.getSource() == b_ordByCmp) {
+        	
+            System.out.println(">>>click ordByCmp");
+            new ToDoOrdByCmp(data, tableModel, list);
+           
+        } 
+        else if (e.getSource() == b_ordByTime) {
+        	
+            System.out.println(">>>click ordByTime");
+            new ToDoOrdByTime(data, tableModel, list);
+           
+        } 
+        else if (e.getSource() == b_ordByStar) {
+        	
+            System.out.println(">>>click ordByTime");
+            new ToDoOrdByTime(data, tableModel, list);
            
         } 
     }

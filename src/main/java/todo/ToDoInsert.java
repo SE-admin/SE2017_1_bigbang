@@ -9,13 +9,13 @@ public class ToDoInsert {
     String  tdSub, tdContent, tdStar, tdTime, tdCmp;
     
     ToDoInsert() {}
-    ToDoInsert(JTextField t_tdSub, JTextField t_tdContent,
-            JTextField t_tdStar, JTextField t_tdTime, JTextField t_tdCmp,
+    ToDoInsert(JTextField t_tdSub,
+            JTextField t_tdStar,  JTextField t_tdContent,JTextField t_tdTime, JTextField t_tdCmp,
             Object data[], DefaultTableModel tableModel, ArrayList<ToDoInfo> list, ArrayList<SubInfo> list2) {
                  
        tdSub = t_tdSub.getText();
-       tdContent = t_tdContent.getText();
        tdStar = t_tdStar.getText();
+       tdContent = t_tdContent.getText();
        tdTime = t_tdTime.getText();
        tdCmp = t_tdCmp.getText();
           
@@ -24,12 +24,12 @@ public class ToDoInsert {
             {
                 if(tdSub.equals(ToDoSubLoad.sublist[i]))
                 {                    
-                    list.add(new ToDoInfo( tdSub, tdContent, tdStar, tdTime, tdCmp));      
+                    list.add(new ToDoInfo( tdSub, tdStar, tdContent, tdTime, tdCmp));      
                     ToDoInfo info = list.get(list.size() - 1);
                    
                     data[0] = info.tdSub_s;
-                    data[1] = info.tdContent_s;
-                    data[2] = info.tdStar_s;
+                    data[1] = info.tdStar_s;
+                    data[2] = info.tdContent_s;
                     data[3] = info.tdTime_s;
                     data[4] = info.tdCmp_s;
                     tableModel.addRow(data);
@@ -37,8 +37,8 @@ public class ToDoInsert {
                             data[0], data[1], data[2], data[3], data[4]);
                   
                     t_tdSub.setText("");
-                    t_tdContent.setText("");
                     t_tdStar.setText("");
+                    t_tdContent.setText("");
                     t_tdTime.setText("");
                     t_tdCmp.setText("");
                     break;

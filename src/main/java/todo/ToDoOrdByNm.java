@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
  
 public class ToDoOrdByNm {
-    String  tdSub, tdContent, tdStar, tdTime, tdCmp;
+    String  tdSub,tdStar, tdContent,  tdTime, tdCmp;
 
     ToDoOrdByNm() {}
     ToDoOrdByNm(Object data[], DefaultTableModel tableModel, ArrayList<ToDoInfo> list) {
@@ -26,8 +26,8 @@ public class ToDoOrdByNm {
 
     	for(int i=0;i<list.size();i++) {
     		data[0] = list.get(i).tdSub_s;
-    		data[1] = list.get(i).tdContent_s;
-    		data[2] = list.get(i).tdStar_s;
+    		data[1] = list.get(i).tdStar_s;
+    		data[2] = list.get(i).tdContent_s;
     		data[3] = list.get(i).tdTime_s;
     		data[4] = list.get(i).tdCmp_s;
     		

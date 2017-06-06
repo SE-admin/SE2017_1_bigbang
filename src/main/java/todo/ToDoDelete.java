@@ -8,10 +8,10 @@ public class ToDoDelete {
     ToDoDelete() {}
     ToDoDelete(int row, JTextField t_tdSub,
             DefaultTableModel tableModel, ArrayList<ToDoInfo> list) {
-        // ������ Ȯ���� ���� �κ�
+    
         ToDoInfo temp = list.get(row);
         System.out.printf(">>>delete data:  %s\t%s\t%s\t%s\t%s\n",
-                 temp.tdSub_s, temp.tdContent_s, temp.tdStar_s, temp.tdTime_s, temp.tdCmp_s);
+                 temp.tdSub_s, temp.tdStar_s, temp.tdContent_s, temp.tdTime_s, temp.tdCmp_s);
         String tdSub = t_tdSub.getText();
         int td_row = new ToDoSearch(tdSub, list).searchData();
         if(td_row != -1) {      

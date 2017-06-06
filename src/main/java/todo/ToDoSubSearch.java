@@ -54,28 +54,28 @@ public class ToDoSubSearch {
                 data[3] = time;
                 data[4] = year;
                 data[5]=seme;
-                // ���̺� ���ǹ��� �����ϴ� �����͸� �߰�
+              
                 tableModel.addRow(data);
             }
            
         }
     }  
    
-    // �迭�� ��ȸ�ϸ鼭 �ڵ��� ���翩�� �˻�
+  
     public int searchData() {
-        // ����Ʈ�� �����ϰ� ���� �� �˻�
+      
         if(list.size() != 0) {
             for(int i=0; i<list.size(); i++) {
                 SubInfo info = list.get(i);
                 if(info.subName_s.equals(temp_subject)) {
-                    // ����Ʈ�� �ߺ��� �ڵ尡 �ִٸ�
+                    
                     return i;
                 }
             }
-            // ����Ʈ�� �ߺ��� �ڵ尡 ���ٸ�
+           
             return -1;
         }
-        // ����Ʈ�� �������� �ʴ´ٸ�
+
         return -1;
     }
 }

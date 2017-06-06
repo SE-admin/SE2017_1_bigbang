@@ -14,7 +14,7 @@ public class ToDoUpdate {
     ToDoUpdate() {}
     ToDoUpdate(int l_row, int row,
             String temp_tdSub,  JTextField tdSub_s,
-            JTextField tdContent_s, JTextField tdStar_s, JTextField tdTime_s,JTextField dCmp_s,
+            JTextField tdStar_s, JTextField tdContent_s,JTextField tdTime_s,JTextField dCmp_s,
             Object data[], DefaultTableModel tableModel,                             ArrayList<ToDoInfo> list) {
         this.tableModel = tableModel;
         this.list = list;
@@ -44,23 +44,23 @@ public class ToDoUpdate {
    
     void update() {
      
-        list.set(l_row, new ToDoInfo( tdSub, tdContent, tdStar, tdTime, tdCmp));
+        list.set(l_row, new ToDoInfo( tdSub, tdStar, tdContent, tdTime, tdCmp));
        
       
       
         data[0] = tdSub;
-        data[1] = tdContent;
-        data[2] = tdStar;
+        data[1] = tdStar;
+        data[2] = tdContent;
         data[3] = tdTime;
         data[4]=tdCmp;
         tableModel.insertRow(row, data);
         tableModel.removeRow(row+1);   
        
-        // ������ ���� �� �ؽ�Ʈ �ʵ带 �ʱ�ȭ ��Ŵ
+   
         
         tdSub_s.setText("");
+        tdStar_s.setText("★★★");
         tdContent_s.setText("");
-        tdStar_s.setText("");
         tdTime_s.setText("");
         dCmp_s.setText("");
     }
