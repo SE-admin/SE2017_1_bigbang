@@ -35,6 +35,7 @@ import javax.swing.JComboBox;
 public class ToDoMainForm extends JFrame implements ActionListener, FocusListener {
     String calName[] = { "강의명", "중요도", "내용", "마감기한", "완료여부" };
     String calName2[] = { "등록된 강의명"};
+    boolean show = true;
     Object data[] = new Object[5];
     Object data2[] = new Object[6];
     JTable table,table2;
@@ -58,6 +59,7 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
     private JButton b_ordByTime;
     private JButton b_ordByCmp;
     private JButton b_tooltip;
+    private JButton b_hideandshow;
     
     public ToDoMainForm() {
         setLocation(200, 200);     
@@ -138,6 +140,10 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         b_tooltip = new JButton("입력 예 보기");
         b_tooltip.setBounds(12, 243, 158, 37);
         panel.add(b_tooltip);
+        
+        b_hideandshow = new JButton("완료 항목 숨기기 / 보이기");
+        b_hideandshow.setBounds(12, 337, 297, 37);
+        panel.add(b_hideandshow);
         
         m_textArea = new JTextArea();
         scrollPane = new JScrollPane(m_textArea);
@@ -234,6 +240,7 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
         b_ordByCmp.addActionListener(this);
         b_ordByStar.addActionListener(this);
         b_tooltip.addActionListener(this);
+        b_hideandshow.addActionListener(this);
         
        
         t_tdSub.addFocusListener(this);
@@ -409,7 +416,37 @@ public class ToDoMainForm extends JFrame implements ActionListener, FocusListene
              tdTime_s.setText("ex)17-06-06");   
              tdCmp_s.setText("ex)o,x");  
            
-        } 
+        }
+        else if (e.getSource() == b_hideandshow) {
+        	
+        	tableModel.setNumRows(0);
+        	
+        	if(show == true) {
+        		for(int i=0;i<list.size();i++) {
+            		if(list.get(i).tdCmp_s.equals("x")) {
+                		data[0] = list.get(i).tdSub_s;
+                		data[1] = list.get(i).tdStar_s;
+                		data[2] = list.get(i).tdContent_s;
+                		data[3] = list.get(i).tdTime_s;
+                		data[4] = list.get(i).tdCmp_s;
+                		
+                		tableModel.addRow(data);                		
+            		}
+            	}
+        		show = false;
+        	}else if(show == false) {
+        		for(int i=0;i<list.size();i++) {
+                	data[0] = list.get(i).tdSub_s;
+                	data[1] = list.get(i).tdStar_s;
+                	data[2] = list.get(i).tdContent_s;
+                	data[3] = list.get(i).tdTime_s;
+                	data[4] = list.get(i).tdCmp_s;
+                		
+                	tableModel.addRow(data);           		
+            	}
+        		show = true;
+        	}
+        }
     }
  
     @Override
